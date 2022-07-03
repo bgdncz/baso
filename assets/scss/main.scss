@@ -164,3 +164,26 @@ header {
 #content a.wavy-black::after {
     @include wave-color("24292F");
 }
+
+@media (max-width: 480px) {
+    /*header {
+        flex-direction: column;
+    }
+    #nav-list {
+        flex-direction: column;
+        align-items: start;
+    }
+    /*body {
+        background-color: red;
+    }*/
+    body {
+        background: $bg-color url($image) no-repeat 5% bottom/50%;
+    }
+    #nav {
+        flex: 3;
+    }
+    #content {
+        left: 25%;
+        width: 75%;
+    }
+}
