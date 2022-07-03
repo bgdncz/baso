@@ -1,0 +1,14 @@
+<header>
+    <div id="home-logo"><a href="/"><img src="/logo.png"/></a></div>
+    <nav class="nav" id="nav">
+        <ul id="nav-list">
+          {{ $currentPage := . }}
+          {{ range .Site.Menus.main }}
+            <li>
+              <a {{ if or (and (eq .Name "about") $currentPage.IsHome) (eq $currentPage.Title .Identifier) }} class="active"
+              {{end}} href="{{ .URL }}">{{ .Name }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      </nav>
+</header>
