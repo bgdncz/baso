@@ -1,3 +1,8 @@
 $bg-color: AntiqueWhite;
 $text-color: black;
 $basic-padding: 30px;
+
+/*{{ $image := .Resources.GetMatch (.Site.Params.Photo) }}
+$image: "{{ $image.RelPermalink }}";*/
+
+$image: "/main.png"
