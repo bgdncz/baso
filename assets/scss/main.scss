@@ -13,6 +13,10 @@ body {
         Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+ul {
+    list-style-type: "— ";
+}
+
 header {
     height: 50px;
     padding: $basic-padding;
@@ -36,6 +40,29 @@ header {
 
 #content p {
     margin: 0.6em 0 0.6em 0;
+}
+
+#content a {
+    color: $text-color;
+    text-decoration: none;
+    position: relative;
+}
+
+#content a::after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20%;
+    width: 100%;
+    height: 20%;
+    transition: height 0.2s linear;
+    background: lightblue;
+}
+
+#content a:hover::after {
+    height: 25%;
 }
 
 #home-logo a {
@@ -67,4 +94,73 @@ header {
 
 #nav-list li {
     list-style-type: none;
+}
+
+.no-link-style {
+    color: $text-color;
+    text-decoration: none;
+}
+
+#nav-list li a {
+    color: $text-color;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+
+    text-shadow: 2px 2px white;
+}
+
+.wavy-text {
+    position: relative;
+}
+
+#content a.wavy-text::after {
+    content: "";
+    position: absolute;
+    bottom: -0.38em;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 1rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    transition: transform 0.3s ease;
+    transform: scale(1) translateZ(0);
+    animation-name: MOVE-BG;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 2;
+}
+
+#content a.wavy-text:hover::after {
+    transform: scale(1.1) translateZ(0);
+}
+
+@keyframes MOVE-BG {
+    0% {
+        transform: scale(1) translateZ(0);
+    }
+    50% {
+        transform: scale(1.1) translateZ(0);
+    }
+    100% {
+        transform: scale(1) translateZ(0);
+    }
+}
+
+#content a.wavy-blue::after {
+    @include wave-color("00356B");
+}
+
+#content a.wavy-red::after {
+    @include wave-color("FF0000");
+}
+
+#content a.wavy-orange::after {
+    @include wave-color("FF7D1E");
+}
+
+#content a.wavy-black::after {
+    @include wave-color("24292F");
 }
